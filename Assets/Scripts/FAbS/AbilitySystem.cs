@@ -21,8 +21,8 @@ namespace FAbS
         public void Initialize()
         {
             _globalSystems
-                .Add(new AddPassiveAbilitySystem())
                 .Add(new RemoveInactivePassiveAbilitiesSystem())
+                .Add(new AddPassiveAbilitySystem())
                 .OneFrame<AddPassiveAbilityEvent>()
                 .Init();
             IsInitialized = true;
@@ -45,7 +45,7 @@ namespace FAbS
         public void RemovePassiveAbility(PassiveAbility passiveAbility)
         {
             if (!IsInitialized) return;
-            passiveAbility.SetActive(false);
+            passiveAbility.Deactivate();
         }
 
         public void Dispose()

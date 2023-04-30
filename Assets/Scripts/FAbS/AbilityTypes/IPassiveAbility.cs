@@ -1,8 +1,13 @@
-﻿namespace FAbS.AbilityTypes
+﻿using UnityEngine.Events;
+
+namespace FAbS.AbilityTypes
 {
     public interface IPassiveAbility : IAbility
     {
         bool IsActive { get; }
-        void SetActive(bool isActive);
+        void Activate();
+        void Deactivate();
+        UnityEvent AbilityActivated { get; }
+        UnityEvent AbilityDeactivated { get; }
     }
 }

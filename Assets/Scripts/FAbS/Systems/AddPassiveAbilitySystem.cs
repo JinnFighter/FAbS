@@ -16,7 +16,7 @@ namespace FAbS.Systems
                 var entity = _world.NewEntity();
                 ref var passiveAbilityContainer = ref entity.Get<PassiveAbilityContainer>();
                 passiveAbilityContainer.PassiveAbility = abilityEvent.PassiveAbility;
-                passiveAbilityContainer.PassiveAbility.SetActive(true);
+                passiveAbilityContainer.PassiveAbility.Activate();
             }
         }
     }
