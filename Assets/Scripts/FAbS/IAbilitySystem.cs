@@ -1,4 +1,5 @@
 using System;
+using FAbS.AbilityTypes;
 
 namespace FAbS
 {
@@ -7,5 +8,7 @@ namespace FAbS
         bool IsInitialized { get; }
         void Initialize();
         void Update();
+        void AddPassiveAbility(PassiveAbility passiveAbility);
+        void RemovePassiveAbility(PassiveAbility passiveAbility);
     }
 }
