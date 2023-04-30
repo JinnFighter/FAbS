@@ -1,0 +1,16 @@
+{
+    "name": "FAbS.Examples",
+    "rootNamespace": "",
+    "references": [
+        "GUID:02ad76c64272b464995719a0be2053fc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
