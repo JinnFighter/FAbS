@@ -3,7 +3,7 @@ using Leopotam.Ecs;
 
 namespace FAbS.Systems
 {
-    public class AddPassiveAbilitySystem : IEcsRunSystem
+    internal class AddPassiveAbilitySystem : IEcsRunSystem
     {
         private readonly EcsFilter<AddPassiveAbilityEvent> _filter = null;
         private readonly EcsWorld _world = null;

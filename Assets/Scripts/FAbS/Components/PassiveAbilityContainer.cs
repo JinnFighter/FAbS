@@ -3,7 +3,7 @@ using Leopotam.Ecs;
 
 namespace FAbS.Components
 {
-    public struct PassiveAbilityContainer : IEcsAutoReset<PassiveAbilityContainer>
+    internal struct PassiveAbilityContainer : IEcsAutoReset<PassiveAbilityContainer>
     {
         public PassiveAbility PassiveAbility;
 
