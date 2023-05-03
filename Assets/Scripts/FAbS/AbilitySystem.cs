@@ -1,4 +1,7 @@
-﻿using Leopotam.Ecs;
+﻿using FAbS.AbilityTypes;
+using FAbS.Components;
+using FAbS.Systems;
+using Leopotam.Ecs;
 
 namespace FAbS
 {
@@ -17,13 +20,32 @@ namespace FAbS
 
         public void Initialize()
         {
-            _globalSystems.Init();
+            _globalSystems
+                .Add(new RemoveInactivePassiveAbilitiesSystem())
+                .Add(new AddPassiveAbilitySystem())
+                .OneFrame<AddPassiveAbilityEvent>()
+                .Init();
             IsInitialized = true;
         }
 
         public void Update()
         {
-            if (IsInitialized) _globalSystems.Run();
+            if (!IsInitialized) return;
+            _globalSystems.Run();
+        }
+
+        public void AddPassiveAbility(PassiveAbility passiveAbility)
+        {
+            if (!IsInitialized) return;
+            var entity = _world.NewEntity();
+            ref var addPassiveAbilityEvent = ref entity.Get<AddPassiveAbilityEvent>();
+            addPassiveAbilityEvent.PassiveAbility = passiveAbility;
+        }
+
+        public void RemovePassiveAbility(PassiveAbility passiveAbility)
+        {
+            if (!IsInitialized) return;
+            passiveAbility.Deactivate();
         }
 
         public void Dispose()
